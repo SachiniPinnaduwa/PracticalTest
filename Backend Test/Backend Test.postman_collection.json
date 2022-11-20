@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "ba4f5c20-d1d0-4e64-8e88-4288a4a961eb",
+		"name": "Backend Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6745627"
+	},
+	"item": [
+		{
+			"name": "Get all Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:23556/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "23556",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"userName\": \"tia2\",\r\n        \"email\": \"test@gmail.com\",\r\n        \"firstName\": \"tia\",\r\n        \"lastName\": \"delma\",\r\n        \"isActive\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:23556/customers/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "23556",
+					"path": [
+						"customers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:23556/customers/delete?userId=5505070a-89fa-4b13-af07-7ba9f2c1df6c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "23556",
+					"path": [
+						"customers",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "5505070a-89fa-4b13-af07-7ba9f2c1df6c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"userId\": \"006c0403-20ce-47de-b4c1-838cbc5bf9a9\",\r\n        \"userName\": \"tia 3\",\r\n        \"email\": \"test@gmail.com\",\r\n        \"firstName\": \"tia\",\r\n        \"lastName\": \"delma\",\r\n        \"isActive\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:23556/customers/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "23556",
+					"path": [
+						"customers",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

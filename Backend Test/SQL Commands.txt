@@ -1,0 +1,43 @@
+CREATE TABLE Customer
+(
+UserId UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+Username char(30),
+Email char(20),
+FirstName CHAR(20),
+LastName CHAR(20),
+CreatedOn DateTime default CURRENT_TIMESTAMP,
+IsActive BIT
+);
+
+CREATE TABLE Supplier
+(
+SupplierId UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+SupplierName char(30),
+CreatedOn DateTime,
+IsActive BIT
+);
+
+CREATE TABLE Product
+(
+ProductId UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+ProductName char(50),
+UnitPrice decimal,
+SupplierId UNIQUEIDENTIFIER NOT NULL  DEFAULT NEWID(),
+CreatedOn DateTime default CURRENT_TIMESTAMP,
+IsActive BIT,
+FOREIGN KEY (SupplierId) REFERENCES Supplier(SupplierId),
+);
+
+CREATE TABLE [order]
+(
+OrderId UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+ProductId UNIQUEIDENTIFIER NOT NULL  DEFAULT NEWID(),
+OrderStatus int,
+OrderType int,
+OrderBy UNIQUEIDENTIFIER NOT NULL  DEFAULT NEWID(),
+OrderedOn DateTime,
+ShippedOn DateTime,
+IsActive BIT,
+FOREIGN KEY (ProductId) REFERENCES Product(ProductId),
+FOREIGN KEY (OrderBy) REFERENCES Customer(UserId)
+);
